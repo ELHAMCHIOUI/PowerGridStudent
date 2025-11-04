@@ -154,7 +154,7 @@ Vous êtes maintenant en mesure de développer dans l'environnement de la machin
 
 ```bash
 cd ~
-git clone git@github.com:[NOM UTILISATEUR]/PowerGridStudent.git
+git clone git@github.com:MonPseudoGitHub/PowerGridStudent.git
 cd PowerGridStudent
 ```
 La première commande déplace votre terminal vers votre dossier personnel, où vous avez les droits d'écriture, la deuxième clone le projet dans ce dossier et la troisième place le terminal dans le dossier du projet.
@@ -180,7 +180,7 @@ code .
 
 Ouvrez l'un des fichiers Python du projet dans VSCode. Un message devrait apparaître, vous invitant à installer l'extension Python dans WSL. Faites cette installation.
 
-> Dans le terminal de Visual Studio Code, si vous travaillez sur une machine de l'université, il est possible que vous soyez connecté en tant que `root` lorsque vous ouvrez votre projet. Si c'est le cas, changez d'utilisateur en utilisant la commande `su -- [NOM UTILISATEUR]`.
+> Dans le terminal de Visual Studio Code, si vous travaillez sur une machine de l'université, il est possible que vous soyez connecté en tant que `root` lorsque vous ouvrez votre projet. Si c'est le cas, changez d'utilisateur en utilisant la commande `su -- MonNomUtilisateur`.
 
 Dans le terminal de la machine virtuelle, vous devez maintenant créer un environnement Python, dans lequel seront installés les paquets dont dépend votre projet. Exécutez les commandes suivantes :
 
@@ -249,7 +249,7 @@ Le premier paramètre de cette commande est le nom que portera la distribution d
 Pour lancer la machine virtuelle importée, il vous suffira alors de taper la commande :
 
 ```bash
-wsl --distribution Ubuntu-dev --user [NOM UTILISATEUR]
+wsl --distribution Ubuntu-dev --user MonNomUtilisateur
 ```
 
 Puis tapez la commande :
@@ -347,7 +347,7 @@ Sur l'interface web de GitHub, naviguez jusqu'à la page de votre projet PowerGr
 Enfin, vous devez ajouter le dépôt GitHub aux serveurs SSH connus par l'utilisateur `jenkins`. Pour ce faire, exécutez la commande suivante, et validez en tapant `yes`:
 
 ```bash
-git ls-remote -h -- git@github.com:[NOM UTILISATEUR GITHUB]/PowerGridStudent.git ~/.ssh/id_ed25519.pub
+git ls-remote -h -- git@github.com:MonPseudoGitHub/PowerGridStudent.git ~/.ssh/id_ed25519.pub
 ```
 
 Pensez à remplacer le nom d'utilisateur GitHub dans la commande par celui du membre du groupe ayant réalisé le fork du dépôt.
@@ -446,7 +446,7 @@ Enfin, la dernière section vous permet de définir le Pipeline à exécuter. La
 Dans le champ **Repository url**, entrez l'url de votre dépôt sur GitHub, qui devrait ressembler à :
 
 ```
-git@github.com:[NOM UTILISATEUR GITHUB]/PowerGridStudent.git
+git@github.com:MonPseudoGitHub/PowerGridStudent.git
 ```
 
 Il vous faut ensuite choisir une valeur pour le champ **Credentials**. Il s'agit du champ qui doit contenir des identifiants permettant à Jenkins d'accéder en lecture à votre dépôt sur GitHub, afin de pouvoir en télécharger et tester le code. Dans le menu déroulant, il n'y a pas encore de valeur disponible à la sélection. Il vous faut ajouter un nouveau jeu d'identifiants en cliquant sur le bouton **Ajouter**, en dessous du menu déroulant. Cliquez sur le choix **Jenkins** et vous parvenez à une interface pour renseigner vos identifiants :
