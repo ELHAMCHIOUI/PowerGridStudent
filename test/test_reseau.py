@@ -97,7 +97,7 @@ class TestReseau(unittest.TestCase):
 
     def test_distribution_correcte(self):
         r = Reseau()
-        print()
+
         r.noeuds[0] = (0, 0)
         r.noeud_entree = 0
 
