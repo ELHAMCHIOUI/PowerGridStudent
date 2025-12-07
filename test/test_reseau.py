@@ -9,15 +9,54 @@ class TestReseau(unittest.TestCase):
 
     def test_definition_entree(self):
         # TODO
-        self.fail()
+        r = Reseau()
+        r.ajouter_noeud(0, (0, 0))
+        r.ajouter_noeud(1, (1, 1))
+
+        # entrée valide
+        r.definir_entree(1)
+        self.assertEqual(r.noeud_entree, 1)
+
+        # entrée invalide -> ne change rien
+        r.definir_entree(2)
+        self.assertEqual(r.noeud_entree, 1)
+        #self.fail()
 
     def test_ajout_noeud(self):
         # TODO
-        self.fail()
+        r = Reseau()
+        r.ajouter_noeud(0, (0, 0))
+        r.ajouter_noeud(1, (1, 1))
+
+        # entrée valide
+        r.definir_entree(1)
+        self.assertEqual(r.noeud_entree, 1)
+
+        # entrée invalide -> ne change rien
+        r.definir_entree(2)
+        self.assertEqual(r.noeud_entree, 1)
+        #self.fail()
 
     def test_ajout_arc(self):
         # TODO
-        self.fail()
+        r = Reseau()
+        r.ajouter_noeud(0, (0, 0))
+        r.ajouter_noeud(1, (0, 1))
+        r.ajouter_noeud(2, (1, 0))
+
+        # arc valide (ordre inversé)
+        r.ajouter_arc(1, 0)
+        self.assertIn((0, 1), r.arcs)
+
+        # pas de doublon
+        r.ajouter_arc(0, 1)
+        self.assertEqual(len(r.arcs), 1)
+
+        # noeud inexistant -> ignoré
+        r.ajouter_arc(0, 3)
+        self.assertEqual(len(r.arcs), 1)
+        #self.fail()
+
 
     def test_validation_correcte(self):
         r = Reseau()
@@ -58,6 +97,7 @@ class TestReseau(unittest.TestCase):
 
     def test_distribution_correcte(self):
         r = Reseau()
+        print()
         r.noeuds[0] = (0, 0)
         r.noeud_entree = 0
 
